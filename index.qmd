@@ -1,5 +1,5 @@
 ---
-pagetitle: "Your Project Title"
+pagetitle: "Crazyfile Quadrotors in Complex Envrionment"
 format:
   html:
     toc: false
@@ -9,23 +9,23 @@ format:
 ::: {.hero-section}
 
 
-# Your Project Title Here {.title}
+# Crazyfile Quadrotors in Complex Envrionment {.title}
 
 ::: {.subtitle}
-A catchy one-line description of your project
+Implementing a robust ROS2-based controller for agile obstacle avoidance and fast speed.
 :::
 
 ::: {.author-list}
 
-[**Author One**](https://example.com)^1^,
-[**Author Two**](https://example.com)^2^,
-[**Author Three**](https://example.com)^1,2^
+[**Xiyuan Zhou**](https://github.com/Annaz2024-ECE)^1^,
+[**Wenjuan Lin**](https://github.com/LatentLin2512)^1^,
+[**Susheendhar Vijay**](https://github.com/psushi)^1^
 
 :::
 
 ::: {.affiliation-list}
 
-^1^University Name,  ^2^Research Lab / Company
+^1^University of Illinois Urbana-Champaign (UIUC)
 
 :::
 
@@ -71,16 +71,25 @@ A catchy one-line description of your project
 ## Abstract {.section-title}
 
 ::: {.abstract-text}
-Replace this text with your project abstract. Describe the problem you are
-solving, the key insight or contribution of your work, and the main results.
-Keep it concise — typically 150–250 words. You can use **bold** and *italic*
-formatting to emphasize key terms.
+This project addresses the challenge of autonomous high-speed navigation 
+for micro-quadrotors in constrained environments. Utilizing the Crazyflie 
+2.1 platform within a ROS2-based architecture, we developed an integrated 
+control and perception pipeline designed to navigate complex, gate-based 
+obstacle courses.
 
-For example: We present a novel approach to [task] that achieves
-state-of-the-art results on [benchmark]. Our method leverages [key technique]
-to overcome [limitation of prior work]. Experiments demonstrate that our
-approach outperforms existing methods by [metric improvement] while requiring
-[efficiency gain].
+Our key contribution lies in the implementation of a robust trajectory 
+tracking controller that bridges the gap between high-fidelity Gazebo 
+simulations (CrazySim) and physical hardware deployment. To overcome the 
+inherent instability of small-scale drones at high velocities, we leveraged 
+state estimation tuning and aggressive attitude control strategies.
+
+Experimental results demonstrate that our system achieves collision-free 
+autonomous flight across diverse track configurations. Our optimized 
+controller reduced lap times by [X]% (e.g., 15%) compared to the baseline 
+PID implementation while maintaining a high safety margin. We successfully 
+validated the sim-to-real transferability of our algorithms, transitioning 
+from zero-collision simulated runs to consistent performance in the physical 
+flight arena.
 :::
 
 :::
@@ -215,7 +224,11 @@ interactive slider here. The example below shows how to set one up.
 
 Here are some related works in this area:
 
-- [Related Paper 1](https://example.com) introduces an idea similar to ours for [topic].
+- [D4RT: Teaching AI to see the world in four dimensions](https://deepmind.google/blog/d4rt-teaching-ai-to-see-the-world-in-four-dimensions/) 
+introduces a unified 4D reconstruction and tracking framework. 
+While our project focuses on ROS2-based control, 
+D4RT represents the cutting edge of spatial perception, 
+which is essential for high-speed autonomous navigation and "world model" understanding.
 - [Related Paper 2](https://example.com) also addresses [problem] using [approach].
 - [Related Paper 3](https://example.com) proposes [technique] which is complementary to our method.
 
@@ -234,11 +247,12 @@ Check out [this survey](https://example.com) for a comprehensive overview of the
 ## BibTeX {.section-title}
 
 ```bibtex
-@article{yourname2026project,
-  author    = {Author One and Author Two and Author Three},
-  title     = {Your Project Title Here},
-  journal   = {Conference or Journal Name},
+@article{WayNo2.0-2026project,
+  author    = {Zhou Xiyuan and Lin Wenjuan and Vijay Susheendhar},
+  title     = {Crazyfile Quadrotors in Complex Environment},
+  howpublished = {Project Report for ECE 484: Principles of Safe Autonomy, University of Illinois Urbana-Champaign},
   year      = {2026},
+  note      = {Course Project}
 }
 ```
 

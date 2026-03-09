@@ -2,57 +2,57 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Your Project Title Here",
+    "title": "Crazyfile Quadrotors in Complex Envrionment",
     "section": "",
-    "text": "A catchy one-line description of your project\n\n\nAuthor One1, Author Two2, Author Three1,2\n\n\n1University Name, 2Research Lab / Company\n\n\n Paper  arXiv  Video  Code  Data"
+    "text": "Implementing a robust ROS2-based controller for agile obstacle avoidance and fast speed.\n\n\nXiyuan Zhou1, Wenjuan Lin1, Susheendhar Vijay1\n\n\n1University of Illinois Urbana-Champaign (UIUC)\n\n\n Paper  arXiv  Video  Code  Data"
   },
   {
     "objectID": "index.html#abstract",
     "href": "index.html#abstract",
-    "title": "Your Project Title Here",
+    "title": "Crazyfile Quadrotors in Complex Envrionment",
     "section": "Abstract",
-    "text": "Abstract\n\nReplace this text with your project abstract. Describe the problem you are solving, the key insight or contribution of your work, and the main results. Keep it concise — typically 150–250 words. You can use bold and italic formatting to emphasize key terms.\nFor example: We present a novel approach to [task] that achieves state-of-the-art results on [benchmark]. Our method leverages [key technique] to overcome [limitation of prior work]. Experiments demonstrate that our approach outperforms existing methods by [metric improvement] while requiring [efficiency gain]."
+    "text": "Abstract\n\nThis project addresses the challenge of autonomous high-speed navigation for micro-quadrotors in constrained environments. Utilizing the Crazyflie 2.1 platform within a ROS2-based architecture, we developed an integrated control and perception pipeline designed to navigate complex, gate-based obstacle courses.\nOur key contribution lies in the implementation of a robust trajectory tracking controller that bridges the gap between high-fidelity Gazebo simulations (CrazySim) and physical hardware deployment. To overcome the inherent instability of small-scale drones at high velocities, we leveraged state estimation tuning and aggressive attitude control strategies.\nExperimental results demonstrate that our system achieves collision-free autonomous flight across diverse track configurations. Our optimized controller reduced lap times by [X]% (e.g., 15%) compared to the baseline PID implementation while maintaining a high safety margin. We successfully validated the sim-to-real transferability of our algorithms, transitioning from zero-collision simulated runs to consistent performance in the physical flight arena."
   },
   {
     "objectID": "index.html#video",
     "href": "index.html#video",
-    "title": "Your Project Title Here",
+    "title": "Crazyfile Quadrotors in Complex Envrionment",
     "section": "Video",
     "text": "Video"
   },
   {
     "objectID": "index.html#results",
     "href": "index.html#results",
-    "title": "Your Project Title Here",
+    "title": "Crazyfile Quadrotors in Complex Envrionment",
     "section": "Results",
     "text": "Results\n\nProvide a brief description of the results shown below. Explain what the reader should observe and why it matters.\n\n\n\n\n\n\nResult 1 caption\n\n\n\n\n\n\n\nResult 2 caption\n\n\n\n\n\n\n\nResult 3 caption"
   },
   {
     "objectID": "index.html#qualitative-comparisons",
     "href": "index.html#qualitative-comparisons",
-    "title": "Your Project Title Here",
+    "title": "Crazyfile Quadrotors in Complex Envrionment",
     "section": "Qualitative Comparisons",
     "text": "Qualitative Comparisons\n\nDescribe the comparison setup — which baselines are you comparing against, and what should the reader look for in the side-by-side results.\n\n\n\n\n\n\nOurs\n\n\nOurs\n\n\n\n\n\nBaseline A\n\n\nBaseline A"
   },
   {
     "objectID": "index.html#interpolation-demo",
     "href": "index.html#interpolation-demo",
-    "title": "Your Project Title Here",
+    "title": "Crazyfile Quadrotors in Complex Envrionment",
     "section": "Interpolation Demo",
     "text": "Interpolation Demo\n\nIf your method supports interpolation or continuous control, you can add an interactive slider here. The example below shows how to set one up.\n\n\n\n\n\n\nStart\n\n\n\n\n\nEnd\n\n\n\n\n\n50%"
   },
   {
     "objectID": "index.html#related-work",
     "href": "index.html#related-work",
-    "title": "Your Project Title Here",
+    "title": "Crazyfile Quadrotors in Complex Envrionment",
     "section": "Related Work",
-    "text": "Related Work\n\nHere are some related works in this area:\n\nRelated Paper 1 introduces an idea similar to ours for [topic].\nRelated Paper 2 also addresses [problem] using [approach].\nRelated Paper 3 proposes [technique] which is complementary to our method.\n\nCheck out this survey for a comprehensive overview of the field."
+    "text": "Related Work\n\nHere are some related works in this area:\n\nD4RT: Teaching AI to see the world in four dimensions introduces a unified 4D reconstruction and tracking framework. While our project focuses on ROS2-based control, D4RT represents the cutting edge of spatial perception, which is essential for high-speed autonomous navigation and “world model” understanding.\nRelated Paper 2 also addresses [problem] using [approach].\nRelated Paper 3 proposes [technique] which is complementary to our method.\n\nCheck out this survey for a comprehensive overview of the field."
   },
   {
     "objectID": "index.html#bibtex",
     "href": "index.html#bibtex",
-    "title": "Your Project Title Here",
+    "title": "Crazyfile Quadrotors in Complex Envrionment",
     "section": "BibTeX",
-    "text": "BibTeX\n@article{yourname2026project,\n  author    = {Author One and Author Two and Author Three},\n  title     = {Your Project Title Here},\n  journal   = {Conference or Journal Name},\n  year      = {2026},\n}"
+    "text": "BibTeX\n@article{WayNo2.0-2026project,\n  author    = {Zhou Xiyuan and Lin Wenjuan and Vijay Susheendhar},\n  title     = {Crazyfile Quadrotors in Complex Environment},\n  howpublished = {Project Report for ECE 484: Principles of Safe Autonomy, University of Illinois Urbana-Champaign},\n  year      = {2026},\n  note      = {Course Project}\n}"
   }
 ]
