@@ -1,5 +1,5 @@
 ---
-pagetitle: "Crazyfile Quadrotors in Complex Envrionment"
+pagetitle: "Crazyflie Quadrotors in Complex Envrionments"
 format:
   html:
     toc: false
@@ -9,10 +9,11 @@ format:
 ::: {.hero-section}
 
 
-# Crazyfile Quadrotors in Complex Envrionment {.title}
+# Crazyflie Quadrotors in Complex Envrionments {.title}
 
 ::: {.subtitle}
-Implementing a robust ROS2-based controller for agile obstacle avoidance and fast speed.
+Developing a learning-based ROS2 controller inspired by the Swift system 
+for time-optimal trajectory tracking and agile obstacle avoidance.
 :::
 
 ::: {.author-list}
@@ -31,11 +32,8 @@ Implementing a robust ROS2-based controller for agile obstacle avoidance and fas
 
 ::: {.button-row}
 
-[[{{< fa file-pdf >}} Paper]{.btn-text}](https://arxiv.org/pdf/XXXX.XXXXX){.btn .btn-primary}
-[[{{< fa brands arxiv >}} arXiv]{.btn-text}](https://arxiv.org/abs/XXXX.XXXXX){.btn .btn-primary}
-[[{{< fa video >}} Video]{.btn-text}](https://www.youtube.com/watch?v=cSQTZoZPJzs){.btn .btn-primary}
-[[{{< fa brands github >}} Code]{.btn-text}](https://github.com/){.btn .btn-primary}
-[[{{< fa database >}} Data]{.btn-text}](https://example.com){.btn .btn-primary}
+[[{{< fa video >}} Video]{.btn-text}](https://youtu.be/2sHEZuPWeng?si=UWs1HXVacxRZi8IE){.btn .btn-primary}
+[[{{< fa brands github >}} Code]{.btn-text}](https://github.com/safeautonomy-illinois-students/project-site-wayno2-0.git){.btn .btn-primary}
 
 :::
 
@@ -51,7 +49,7 @@ Implementing a robust ROS2-based controller for agile obstacle avoidance and fas
 ::: {.hero-teaser}
 
 <!-- Option A: Use a static image as the teaser -->
-![Teaser figure showing your method overview or key result.](static/images/placeholder-teaser.svg){.teaser-img}
+![Block Diagram](static/images/block_diagram.png){.teaser-img}
 
 <!-- Option B: Embed a video teaser (uncomment below, comment out image above)
 {{< video static/videos/teaser.mp4 >}}
@@ -71,25 +69,24 @@ Implementing a robust ROS2-based controller for agile obstacle avoidance and fas
 ## Abstract {.section-title}
 
 ::: {.abstract-text}
-This project addresses the challenge of autonomous high-speed navigation 
-for micro-quadrotors in constrained environments. Utilizing the Crazyflie 
-2.1 platform within a ROS2-based architecture, we developed an integrated 
-control and perception pipeline designed to navigate complex, gate-based 
-obstacle courses.
+Autonomous drone racing requires a robot to fly at its physical limits 
+while navigating complex 3D circuits using onboard sensors. Inspired by 
+the recent Swift system which achieved world-champion level performance, 
+this project aims to develop a high-performance autonomous navigation 
+pipeline for the Crazyflie quadrotor.
 
-Our key contribution lies in the implementation of a robust trajectory 
-tracking controller that bridges the gap between high-fidelity Gazebo 
-simulations (CrazySim) and physical hardware deployment. To overcome the 
-inherent instability of small-scale drones at high velocities, we leveraged 
-state estimation tuning and aggressive attitude control strategies.
+Our current work establishes a robust Gazebo-based simulation environment 
+(CrazySim) to serve as the training ground for our control policies. 
+We propose to adopt a model-free deep reinforcement learning (RL) approach, 
+similar to the methodology used by Kaufmann et al.(2023), to train a neural 
+network control policy in simulation. To overcome the Sim-to-Real gap, 
+we intend to implement residual modeling techniques that account for 
+unmodeled aerodynamics and sensor noise, ensuring a smooth transition 
+from simulation to the physical flight arena.
 
-Experimental results demonstrate that our system achieves collision-free 
-autonomous flight across diverse track configurations. Our optimized 
-controller reduced lap times by [X]% (e.g., 15%) compared to the baseline 
-PID implementation while maintaining a high safety margin. We successfully 
-validated the sim-to-real transferability of our algorithms, transitioning 
-from zero-collision simulated runs to consistent performance in the physical 
-flight arena.
+By integrating the crazyswarm2 autonomy stack with learning-based controllers, 
+we aim to achieve precise gate traversal and time-optimal trajectories that 
+push the boundaries of classical control.
 :::
 
 :::
@@ -105,7 +102,7 @@ flight arena.
 
 ::: {.video-container}
 <!-- Replace with your YouTube or local video embed -->
-{{< video https://www.youtube.com/embed/cSQTZoZPJzs >}}
+{{< video https://youtu.be/2sHEZuPWeng?si=UWs1HXVacxRZi8IE >}}
 :::
 
 :::
@@ -120,22 +117,15 @@ flight arena.
 ## Results {.section-title}
 
 ::: {.content-text}
-Provide a brief description of the results shown below. Explain what the
-reader should observe and why it matters.
+Target Vision: Time-optimal trajectories for autonomous drone racing through 
+a multi-gate circuit, inspired by the Swift system.
+Image source: Kaufmann et al. (2023).
 :::
 
 ::: {.results-grid}
 
 ::: {.result-card}
-![Result 1 caption](static/images/placeholder-result1.svg)
-:::
-
-::: {.result-card}
-![Result 2 caption](static/images/placeholder-result2.svg)
-:::
-
-::: {.result-card}
-![Result 3 caption](static/images/placeholder-result3.svg)
+![Target Vision](static/images/target_result.jpg)
 :::
 
 :::
@@ -224,15 +214,23 @@ interactive slider here. The example below shows how to set one up.
 
 Here are some related works in this area:
 
+- [Champion-level drone racing using deep reinforcement learning](https://www.nature.com/articles/s41586-023-06419-4) 
+also addresses the gap between simulation and physical reality (Sim-to-Real) using data-driven residual models to account for unmodeled aerodynamics and sensor noise.
 - [D4RT: Teaching AI to see the world in four dimensions](https://deepmind.google/blog/d4rt-teaching-ai-to-see-the-world-in-four-dimensions/) 
 introduces a unified 4D reconstruction and tracking framework. 
 While our project focuses on ROS2-based control, 
 D4RT represents the cutting edge of spatial perception, 
 which is essential for high-speed autonomous navigation and "world model" understanding.
-- [Related Paper 2](https://example.com) also addresses [problem] using [approach].
-- [Related Paper 3](https://example.com) proposes [technique] which is complementary to our method.
 
-Check out [this survey](https://example.com) for a comprehensive overview of the field.
+:::
+
+## References {.section-title}
+
+::: {.content-text}
+
+[1] Kaufmann, E., Bauersfeld, L., Loquercio, A., et al. "Champion-level drone racing using deep reinforcement learning." 
+*Nature* 620, 982–987 (2023). [https://doi.org/10.1038/s41586-023-06419-4](https://doi.org/10.1038/s41586-023-06419-4)
+
 :::
 
 :::
