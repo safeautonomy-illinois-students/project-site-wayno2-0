@@ -1,5 +1,5 @@
 ---
-pagetitle: "Crazyflie Quadrotors in Complex Envrionments"
+pagetitle: "Wayno Crazyflie Quadrotor"
 format:
   html:
     toc: false
@@ -9,7 +9,7 @@ format:
 ::: {.hero-section}
 
 
-# Crazyflie Quadrotors in Complex Envrionments {.title}
+# Wayno Crazyflie Quadrotor {.title}
 
 ::: {.subtitle}
 Developing a learning-based ROS2 controller inspired by the Swift system 
@@ -32,8 +32,9 @@ for time-optimal trajectory tracking and agile obstacle avoidance.
 
 ::: {.button-row}
 
-[[{{< fa video >}} Video]{.btn-text}](https://youtu.be/2sHEZuPWeng?si=UWs1HXVacxRZi8IE){.btn .btn-primary}
-[[{{< fa brands github >}} Code]{.btn-text}](https://github.com/safeautonomy-illinois-students/project-site-wayno2-0.git){.btn .btn-primary}
+[[{{< fa video >}} Simulation Video]{.btn-text}](https://youtu.be/hbPQByq5deU){.btn .btn-primary}
+[[{{< fa video >}} Hardware Video]{.btn-text}](https://youtu.be/iOUJcZcdEEY){.btn .btn-primary}
+[[{{< fa brands github >}} Code]{.btn-text}](https://github.com/safeautonomy-illinois-students/drone-track-wayno2.git){.btn .btn-primary}
 
 :::
 
@@ -69,95 +70,112 @@ for time-optimal trajectory tracking and agile obstacle avoidance.
 ## Abstract {.section-title}
 
 ::: {.abstract-text}
-Autonomous drone racing requires a robot to fly at its physical limits 
-while navigating complex 3D circuits using onboard sensors. Inspired by 
-the recent Swift system which achieved world-champion level performance, 
-this project aims to develop a high-performance autonomous navigation 
-pipeline for the Crazyflie quadrotor.
+Autonomous drone racing requires a robot to navigate complex 3D circuits with agility and precision using onboard sensors. 
+This project aims to develop a high-performance autonomous navigation pipeline for the Crazyflie quadrotor, 
+ultimately delivering a highly stable and fast autonomous flight system.
 
-Our current work establishes a robust Gazebo-based simulation environment 
-(CrazySim) to serve as the training ground for our control policies. 
-We propose to adopt a model-free deep reinforcement learning (RL) approach, 
-similar to the methodology used by Kaufmann et al.(2023), to train a neural 
-network control policy in simulation. To overcome the Sim-to-Real gap, 
-we intend to implement residual modeling techniques that account for 
-unmodeled aerodynamics and sensor noise, ensuring a smooth transition 
-from simulation to the physical flight arena.
+Our current work establishes a robust Gazebo-based simulation environment (CrazySim) 
+to serve as our primary testing and training ground. 
+To achieve our goal of high-speed stability, we are pursuing a dual-track approach: 
+advancing a classical pipeline (global trajectory planning paired with optimal control) 
+while simultaneously exploring a model-free deep reinforcement learning (RL) policy. 
+To overcome the Sim-to-Real gap, 
+we intend to implement techniques that account for unmodeled aerodynamics and sensor noise, 
+ensuring a smooth transition from simulation to the physical Highbay arena.
 
-By integrating the crazyswarm2 autonomy stack with learning-based controllers, 
-we aim to achieve precise gate traversal and time-optimal trajectories that 
-push the boundaries of classical control.
+By integrating the crazyswarm2 autonomy stack with these advanced control strategies, 
+we aim to achieve reliable gate traversal, robust obstacle avoidance, and consistently fast lap times.
 :::
 
 :::
 
 
 <!-- ============================================================ -->
-<!-- OVERVIEW / METHOD VIDEO -->
+<!-- Simulation (software) -->
 <!-- ============================================================ -->
 
 ::: {.section-container}
 
-## Video {.section-title}
+## Software: Simulation Progress {.section-title}
+
+::: {.content-text}
+We have established a robust Gazebo-based simulation environment. 
+A baseline PID controller has been fully implemented and tested in simulation, 
+demonstrating reliable gate traversal and waypoint tracking under ideal physics conditions.
+:::
 
 ::: {.video-container}
 <!-- Replace with your YouTube or local video embed -->
-{{< video https://youtu.be/2sHEZuPWeng?si=UWs1HXVacxRZi8IE >}}
+{{< video https://youtu.be/hbPQByq5deU >}}
 :::
 
 :::
 
 
 <!-- ============================================================ -->
-<!-- RESULTS GALLERY -->
-<!-- ============================================================ -->
-
-::: {.section-container}
-
-## Results {.section-title}
-
-::: {.content-text}
-Target Vision: Time-optimal trajectories for autonomous drone racing through 
-a multi-gate circuit, inspired by the Swift system.
-Image source: Kaufmann et al. (2023).
-:::
-
-::: {.results-grid}
-
-::: {.result-card}
-![Target Vision](static/images/target_result.jpg)
-:::
-
-:::
-
-:::
-
-
-<!-- ============================================================ -->
-<!-- QUALITATIVE COMPARISONS -->
+<!-- Flight (hardware) -->
 <!-- ============================================================ -->
 
 ::: {.section-container}
 
-## Qualitative Comparisons {.section-title}
+## Hardware: Physical Flight Tests {.section-title}
 
 ::: {.content-text}
-Describe the comparison setup — which baselines are you comparing against, and
-what should the reader look for in the side-by-side results.
+Moving from simulation to the physical Highbay environment, 
+we have successfully collected Rosbag data and tested our controller on the Crazyflie hardware. 
+Currently, stable hover is achieved, and by scaling down the target velocity, 
+the drone can successfully complete a full lap of the circuit.
+:::
+
+::: {.video-container}
+<!-- Replace with your YouTube or local video embed -->
+{{< video https://youtu.be/iOUJcZcdEEY >}}
+:::
+
+:::
+
+
+<!-- ============================================================ -->
+<!-- Data Analysis -->
+<!-- ============================================================ -->
+
+::: {.section-container}
+
+## Data Analysis & Metrics {.section-title}
+
+::: {.content-text}
+We utilize `mcap` Rosbags collected during our physical hardware runs to evaluate controller robustness. 
+We track the positional error against our gate passing thresholds: **±0.25m in the Y-axis (lateral)** 
+and **±0.1m in the Z-axis (vertical)**.
 :::
 
 ::: {.comparison-grid}
 
 ::: {.comparison-item}
-![Ours](static/images/placeholder-ours.svg)
-
-**Ours**
+### Successful Traversal
+![Successful Traversal Plot](static/images/analysis_plot_colorful_pass.png)
+<p style="font-size: 16px !important; line-height: 1.6 !important; font-weight: normal !important; text-align: left !important; margin-top: 15px;">
+<strong>Analysis:</strong> This run demonstrates a successful lap using our baseline PID controller. 
+By placing the drone physically close to the nominal takeoff position defined in the configuration, 
+the initial positional error was minimized. The controller effectively compensated for minor deviations, 
+pulling the drone well within the Y-axis (±0.25m) and Z-axis (±0.1m) tolerance zones for Gate 0. 
+This satisfied the switching conditions, 
+allowing the state machine to sequentially trigger gate transitions and complete the track.
+</p>
 :::
 
 ::: {.comparison-item}
-![Baseline A](static/images/placeholder-baseline.svg)
-
-**Baseline A**
+### Failure Case Analysis
+![Failure Case Plot](static/images/analysis_plot_colorful_fail.png)
+<p style="font-size: 16px !important; line-height: 1.6 !important; font-weight: normal !important; text-align: left !important; margin-top: 15px;">
+<strong>Analysis:</strong> This failure case was recorded using the <strong>exact same code and PID parameters</strong> 
+as the successful run. The only altered variable was the drone's physical starting location, 
+which was manually placed further from the configured nominal position. 
+The data reveals that this larger initial displacement caused the controller to settle into a steady-state error 
+at Y = -0.15m. Because this leaves the drone ≈ 0.4m away from the target center (Y = 0.25m), 
+it fails to satisfy the <strong>less than 0.25m</strong> threshold requirement. Consequently, the state machine locks up, 
+exposing the controller's current sensitivity to initial takeoff positions and the need for stronger integral ($K_i$) control.
+</p>
 :::
 
 :::
@@ -166,37 +184,32 @@ what should the reader look for in the side-by-side results.
 
 
 <!-- ============================================================ -->
-<!-- INTERACTIVE SLIDER (Optional) -->
+<!-- Next Step -->
 <!-- ============================================================ -->
 
 ::: {.section-container}
 
-## Interpolation Demo {.section-title}
+## Next Steps {.section-title}
 
 ::: {.content-text}
-If your method supports interpolation or continuous control, you can add an
-interactive slider here. The example below shows how to set one up.
-:::
+Based on our midpoint evaluation and the data gathered from our baseline hardware flights, 
+our next steps will focus on three primary objectives to achieve faster and more robust autonomous racing:
 
-::: {.interpolation-panel}
-
-::: {.interpolation-endpoints}
-![Start](static/images/placeholder-start.svg){.endpoint-img}
-
-![End](static/images/placeholder-end.svg){.endpoint-img}
-:::
-
-<input type="range" min="0" max="100" value="50" class="interpolation-slider" id="interpolation-slider">
-<div id="interpolation-value" class="interpolation-value">50%</div>
-
-<script>
-  const slider = document.getElementById('interpolation-slider');
-  const display = document.getElementById('interpolation-value');
-  slider.addEventListener('input', function() {
-    display.textContent = this.value + '%';
-  });
-</script>
-
+1. **Proactive Trajectory Planning (A* Search):** 
+Currently, the drone calculates approach points and waypoints reactively on the fly. 
+We plan to shift to a proactive architecture by introducing a global planning algorithm (such as A*) 
+to pre-compute a continuous, obstacle-free trajectory before flight. 
+Initially, we will pair this new planner with our existing PID controller to validate the generated paths.
+2. **Advanced Optimal Control (LQR):** 
+Once the global trajectory planning pipeline is verified, 
+we will upgrade our flight controller by replacing the baseline PID with a Linear Quadratic Regulator (LQR). 
+Unlike PID, LQR can mathematically optimize the trade-off between tracking error 
+and control effort across multiple state variables simultaneously. 
+We expect this to significantly reduce steady-state errors and enable much faster, smoother trajectory tracking.
+3. **Reinforcement Learning (RL) Refinement:** 
+In parallel with the classical planning-and-control pipeline, we are actively training a model-free RL policy in CrazySim. 
+We will continue to train and tune the reward functions to produce a neural network capable of agile gate passing 
+and dynamic obstacle avoidance, working towards our ultimate goal of deploying a highly stable and fast autonomous drone.
 :::
 
 :::
