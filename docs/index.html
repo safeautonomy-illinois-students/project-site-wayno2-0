@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Crazyflie Quadrotors in Complex Envrionments – Project Title</title>
+<title>Wayno Crazyflie Quadrotor – Project Title</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -110,6 +110,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -164,8 +193,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="crazyflie-quadrotors-in-complex-envrionments" class="level1 title hero-section">
-<h1 class="title">Crazyflie Quadrotors in Complex Envrionments</h1>
+<section id="wayno-crazyflie-quadrotor" class="level1 title hero-section">
+<h1 class="title">Wayno Crazyflie Quadrotor</h1>
 <div class="subtitle">
 <p>Developing a learning-based ROS2 controller inspired by the Swift system for time-optimal trajectory tracking and agile obstacle avoidance.</p>
 </div>
@@ -176,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><sup>1</sup>University of Illinois Urbana-Champaign (UIUC)</p>
 </div>
 <div class="button-row">
-<p><a href="https://youtu.be/2sHEZuPWeng?si=UWs1HXVacxRZi8IE" class="btn btn-primary"><span class="btn-text"><i class="fa-solid fa-video" aria-label="video"></i> Video</span></a> <a href="https://github.com/safeautonomy-illinois-students/project-site-wayno2-0.git" class="btn btn-primary"><span class="btn-text"><i class="fa-brands fa-github" aria-label="github"></i> Code</span></a></p>
+<p><a href="https://youtu.be/hbPQByq5deU" class="btn btn-primary"><span class="btn-text"><i class="fa-solid fa-video" aria-label="video"></i> Simulation Video</span></a> <a href="https://youtu.be/iOUJcZcdEEY" class="btn btn-primary"><span class="btn-text"><i class="fa-solid fa-video" aria-label="video"></i> Hardware Video</span></a> <a href="https://github.com/safeautonomy-illinois-students/drone-track-wayno2.git" class="btn btn-primary"><span class="btn-text"><i class="fa-brands fa-github" aria-label="github"></i> Code</span></a></p>
 </div>
 </section>
 <!-- ============================================================ -->
@@ -202,103 +231,84 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="abstract" class="level2 section-title section-container">
 <h2 class="section-title anchored" data-anchor-id="abstract">Abstract</h2>
 <div class="abstract-text">
-<p>Autonomous drone racing requires a robot to fly at its physical limits while navigating complex 3D circuits using onboard sensors. Inspired by the recent Swift system which achieved world-champion level performance, this project aims to develop a high-performance autonomous navigation pipeline for the Crazyflie quadrotor.</p>
-<p>Our current work establishes a robust Gazebo-based simulation environment (CrazySim) to serve as the training ground for our control policies. We propose to adopt a model-free deep reinforcement learning (RL) approach, similar to the methodology used by Kaufmann et al.(2023), to train a neural network control policy in simulation. To overcome the Sim-to-Real gap, we intend to implement residual modeling techniques that account for unmodeled aerodynamics and sensor noise, ensuring a smooth transition from simulation to the physical flight arena.</p>
-<p>By integrating the crazyswarm2 autonomy stack with learning-based controllers, we aim to achieve precise gate traversal and time-optimal trajectories that push the boundaries of classical control.</p>
+<p>Autonomous drone racing requires a robot to navigate complex 3D circuits with agility and precision using onboard sensors. This project aims to develop a high-performance autonomous navigation pipeline for the Crazyflie quadrotor, ultimately delivering a highly stable and fast autonomous flight system.</p>
+<p>Our current work establishes a robust Gazebo-based simulation environment (CrazySim) to serve as our primary testing and training ground. To achieve our goal of high-speed stability, we are pursuing a dual-track approach: advancing a classical pipeline (global trajectory planning paired with optimal control) while simultaneously exploring a model-free deep reinforcement learning (RL) policy. To overcome the Sim-to-Real gap, we intend to implement techniques that account for unmodeled aerodynamics and sensor noise, ensuring a smooth transition from simulation to the physical Highbay arena.</p>
+<p>By integrating the crazyswarm2 autonomy stack with these advanced control strategies, we aim to achieve reliable gate traversal, robust obstacle avoidance, and consistently fast lap times.</p>
 </div>
 </section>
 <!-- ============================================================ -->
-<!-- OVERVIEW / METHOD VIDEO -->
+<!-- Simulation (software) -->
 <!-- ============================================================ -->
-<section id="video" class="level2 section-title section-container">
-<h2 class="section-title anchored" data-anchor-id="video">Video</h2>
+<section id="software-simulation-progress" class="level2 section-title section-container">
+<h2 class="section-title anchored" data-anchor-id="software-simulation-progress">Software: Simulation Progress</h2>
+<div class="content-text">
+<p>We have established a robust Gazebo-based simulation environment. A baseline PID controller has been fully implemented and tested in simulation, demonstrating reliable gate traversal and waypoint tracking under ideal physics conditions.</p>
+</div>
 <div class="video-container">
 <!-- Replace with your YouTube or local video embed -->
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/2sHEZuPWeng?si=UWs1HXVacxRZi8IE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/hbPQByq5deU" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 </section>
 <!-- ============================================================ -->
-<!-- RESULTS GALLERY -->
+<!-- Flight (hardware) -->
 <!-- ============================================================ -->
-<section id="results" class="level2 section-title section-container">
-<h2 class="section-title anchored" data-anchor-id="results">Results</h2>
+<section id="hardware-physical-flight-tests" class="level2 section-title section-container">
+<h2 class="section-title anchored" data-anchor-id="hardware-physical-flight-tests">Hardware: Physical Flight Tests</h2>
 <div class="content-text">
-<p>Target Vision: Time-optimal trajectories for autonomous drone racing through a multi-gate circuit, inspired by the Swift system. Image source: Kaufmann et al.&nbsp;(2023).</p>
+<p>Moving from simulation to the physical Highbay environment, we have successfully collected Rosbag data and tested our controller on the Crazyflie hardware. Currently, stable hover is achieved, and by scaling down the target velocity, the drone can successfully complete a full lap of the circuit.</p>
 </div>
-<div class="results-grid">
-<div class="result-card">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="static/images/target_result.jpg" class="img-fluid figure-img"></p>
-<figcaption>Target Vision</figcaption>
-</figure>
-</div>
-</div>
+<div class="video-container">
+<!-- Replace with your YouTube or local video embed -->
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/iOUJcZcdEEY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 </section>
 <!-- ============================================================ -->
-<!-- QUALITATIVE COMPARISONS -->
+<!-- Data Analysis -->
 <!-- ============================================================ -->
-<section id="qualitative-comparisons" class="level2 section-title section-container">
-<h2 class="section-title anchored" data-anchor-id="qualitative-comparisons">Qualitative Comparisons</h2>
+<section id="data-analysis-metrics" class="level2 section-title section-container">
+<h2 class="section-title anchored" data-anchor-id="data-analysis-metrics">Data Analysis &amp; Metrics</h2>
 <div class="content-text">
-<p>Describe the comparison setup — which baselines are you comparing against, and what should the reader look for in the side-by-side results.</p>
+<p>We utilize <code>mcap</code> Rosbags collected during our physical hardware runs to evaluate controller robustness. We track the positional error against our gate passing thresholds: <strong>±0.25m in the Y-axis (lateral)</strong> and <strong>±0.1m in the Z-axis (vertical)</strong>.</p>
 </div>
 <div class="comparison-grid">
-<div class="comparison-item">
+<section id="successful-traversal" class="level3 comparison-item">
+<h3 class="anchored" data-anchor-id="successful-traversal">Successful Traversal</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="static/images/placeholder-ours.svg" class="img-fluid figure-img"></p>
-<figcaption>Ours</figcaption>
+<p><img src="static/images/analysis_plot_colorful_pass.png" class="img-fluid figure-img"></p>
+<figcaption>Successful Traversal Plot</figcaption>
 </figure>
 </div>
-<p><strong>Ours</strong></p>
-</div>
-<div class="comparison-item">
+<p style="font-size: 16px !important; line-height: 1.6 !important; font-weight: normal !important; text-align: left !important; margin-top: 15px;">
+<strong>Analysis:</strong> This run demonstrates a successful lap using our baseline PID controller. By placing the drone physically close to the nominal takeoff position defined in the configuration, the initial positional error was minimized. The controller effectively compensated for minor deviations, pulling the drone well within the Y-axis (±0.25m) and Z-axis (±0.1m) tolerance zones for Gate 0. This satisfied the switching conditions, allowing the state machine to sequentially trigger gate transitions and complete the track.
+</p>
+</section>
+<section id="failure-case-analysis" class="level3 comparison-item">
+<h3 class="anchored" data-anchor-id="failure-case-analysis">Failure Case Analysis</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="static/images/placeholder-baseline.svg" class="img-fluid figure-img"></p>
-<figcaption>Baseline A</figcaption>
+<p><img src="static/images/analysis_plot_colorful_fail.png" class="img-fluid figure-img"></p>
+<figcaption>Failure Case Plot</figcaption>
 </figure>
 </div>
-<p><strong>Baseline A</strong></p>
-</div>
+<p style="font-size: 16px !important; line-height: 1.6 !important; font-weight: normal !important; text-align: left !important; margin-top: 15px;">
+<strong>Analysis:</strong> This failure case was recorded using the <strong>exact same code and PID parameters</strong> as the successful run. The only altered variable was the drone’s physical starting location, which was manually placed further from the configured nominal position. The data reveals that this larger initial displacement caused the controller to settle into a steady-state error at Y = -0.15m. Because this leaves the drone ≈ 0.4m away from the target center (Y = 0.25m), it fails to satisfy the <strong>less than 0.25m</strong> threshold requirement. Consequently, the state machine locks up, exposing the controller’s current sensitivity to initial takeoff positions and the need for stronger integral (<span class="math inline">\(K_i\)</span>) control.
+</p>
+</section>
 </div>
 </section>
 <!-- ============================================================ -->
-<!-- INTERACTIVE SLIDER (Optional) -->
+<!-- Next Step -->
 <!-- ============================================================ -->
-<section id="interpolation-demo" class="level2 section-title section-container">
-<h2 class="section-title anchored" data-anchor-id="interpolation-demo">Interpolation Demo</h2>
+<section id="next-steps" class="level2 section-title section-container">
+<h2 class="section-title anchored" data-anchor-id="next-steps">Next Steps</h2>
 <div class="content-text">
-<p>If your method supports interpolation or continuous control, you can add an interactive slider here. The example below shows how to set one up.</p>
-</div>
-<div class="interpolation-panel">
-<div class="interpolation-endpoints">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="static/images/placeholder-start.svg" class="endpoint-img img-fluid figure-img"></p>
-<figcaption>Start</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="static/images/placeholder-end.svg" class="endpoint-img img-fluid figure-img"></p>
-<figcaption>End</figcaption>
-</figure>
-</div>
-</div>
-<input type="range" min="0" max="100" value="50" class="interpolation-slider" id="interpolation-slider">
-<div id="interpolation-value" class="interpolation-value">
-50%
-</div>
-<script>
-  const slider = document.getElementById('interpolation-slider');
-  const display = document.getElementById('interpolation-value');
-  slider.addEventListener('input', function() {
-    display.textContent = this.value + '%';
-  });
-</script>
+<p>Based on our midpoint evaluation and the data gathered from our baseline hardware flights, our next steps will focus on three primary objectives to achieve faster and more robust autonomous racing:</p>
+<ol type="1">
+<li><strong>Proactive Trajectory Planning (A* Search):</strong> Currently, the drone calculates approach points and waypoints reactively on the fly. We plan to shift to a proactive architecture by introducing a global planning algorithm (such as A*) to pre-compute a continuous, obstacle-free trajectory before flight. Initially, we will pair this new planner with our existing PID controller to validate the generated paths.</li>
+<li><strong>Advanced Optimal Control (LQR):</strong> Once the global trajectory planning pipeline is verified, we will upgrade our flight controller by replacing the baseline PID with a Linear Quadratic Regulator (LQR). Unlike PID, LQR can mathematically optimize the trade-off between tracking error and control effort across multiple state variables simultaneously. We expect this to significantly reduce steady-state errors and enable much faster, smoother trajectory tracking.</li>
+<li><strong>Reinforcement Learning (RL) Refinement:</strong> In parallel with the classical planning-and-control pipeline, we are actively training a model-free RL policy in CrazySim. We will continue to train and tune the reward functions to produce a neural network capable of agile gate passing and dynamic obstacle avoidance, working towards our ultimate goal of deploying a highly stable and fast autonomous drone.</li>
+</ol>
 </div>
 </section>
 <!-- ============================================================ -->
