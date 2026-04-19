@@ -1,6 +1,10 @@
 project:
   type: website
   output-dir: docs
+  render: 
+      - "*.qmd"
+      - "!cf-ros2/**"
+      - "!**/crazyswarm2_ws/**"
 
 website:
   title: "Project Title"

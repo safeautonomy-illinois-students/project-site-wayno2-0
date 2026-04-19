@@ -2,63 +2,63 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Crazyflie Quadrotors in Complex Envrionments",
+    "title": "Wayno Crazyflie Quadrotor",
     "section": "",
-    "text": "Developing a learning-based ROS2 controller inspired by the Swift system for time-optimal trajectory tracking and agile obstacle avoidance.\n\n\nXiyuan Zhou1, Wenjuan Lin1, Susheendhar Vijay1\n\n\n1University of Illinois Urbana-Champaign (UIUC)\n\n\n Video  Code"
+    "text": "Developing a learning-based ROS2 controller inspired by the Swift system for time-optimal trajectory tracking and agile obstacle avoidance.\n\n\nXiyuan Zhou1, Wenjuan Lin1, Susheendhar Vijay1\n\n\n1University of Illinois Urbana-Champaign (UIUC)\n\n\n Simulation Video  Hardware Video  Code"
   },
   {
     "objectID": "index.html#abstract",
     "href": "index.html#abstract",
-    "title": "Crazyflie Quadrotors in Complex Envrionments",
+    "title": "Wayno Crazyflie Quadrotor",
     "section": "Abstract",
-    "text": "Abstract\n\nAutonomous drone racing requires a robot to fly at its physical limits while navigating complex 3D circuits using onboard sensors. Inspired by the recent Swift system which achieved world-champion level performance, this project aims to develop a high-performance autonomous navigation pipeline for the Crazyflie quadrotor.\nOur current work establishes a robust Gazebo-based simulation environment (CrazySim) to serve as the training ground for our control policies. We propose to adopt a model-free deep reinforcement learning (RL) approach, similar to the methodology used by Kaufmann et al.(2023), to train a neural network control policy in simulation. To overcome the Sim-to-Real gap, we intend to implement residual modeling techniques that account for unmodeled aerodynamics and sensor noise, ensuring a smooth transition from simulation to the physical flight arena.\nBy integrating the crazyswarm2 autonomy stack with learning-based controllers, we aim to achieve precise gate traversal and time-optimal trajectories that push the boundaries of classical control."
+    "text": "Abstract\n\nAutonomous drone racing requires a robot to navigate complex 3D circuits with agility and precision using onboard sensors. This project aims to develop a high-performance autonomous navigation pipeline for the Crazyflie quadrotor, ultimately delivering a highly stable and fast autonomous flight system.\nOur current work establishes a robust Gazebo-based simulation environment (CrazySim) to serve as our primary testing and training ground. To achieve our goal of high-speed stability, we are pursuing a dual-track approach: advancing a classical pipeline (global trajectory planning paired with optimal control) while simultaneously exploring a model-free deep reinforcement learning (RL) policy. To overcome the Sim-to-Real gap, we intend to implement techniques that account for unmodeled aerodynamics and sensor noise, ensuring a smooth transition from simulation to the physical Highbay arena.\nBy integrating the crazyswarm2 autonomy stack with these advanced control strategies, we aim to achieve reliable gate traversal, robust obstacle avoidance, and consistently fast lap times."
   },
   {
-    "objectID": "index.html#video",
-    "href": "index.html#video",
-    "title": "Crazyflie Quadrotors in Complex Envrionments",
-    "section": "Video",
-    "text": "Video"
+    "objectID": "index.html#software-simulation-progress",
+    "href": "index.html#software-simulation-progress",
+    "title": "Wayno Crazyflie Quadrotor",
+    "section": "Software: Simulation Progress",
+    "text": "Software: Simulation Progress\n\nWe have established a robust Gazebo-based simulation environment. A baseline PID controller has been fully implemented and tested in simulation, demonstrating reliable gate traversal and waypoint tracking under ideal physics conditions."
   },
   {
-    "objectID": "index.html#results",
-    "href": "index.html#results",
-    "title": "Crazyflie Quadrotors in Complex Envrionments",
-    "section": "Results",
-    "text": "Results\n\nTarget Vision: Time-optimal trajectories for autonomous drone racing through a multi-gate circuit, inspired by the Swift system. Image source: Kaufmann et al. (2023).\n\n\n\n\n\n\nTarget Vision"
+    "objectID": "index.html#hardware-physical-flight-tests",
+    "href": "index.html#hardware-physical-flight-tests",
+    "title": "Wayno Crazyflie Quadrotor",
+    "section": "Hardware: Physical Flight Tests",
+    "text": "Hardware: Physical Flight Tests\n\nMoving from simulation to the physical Highbay environment, we have successfully collected Rosbag data and tested our controller on the Crazyflie hardware. Currently, stable hover is achieved, and by scaling down the target velocity, the drone can successfully complete a full lap of the circuit."
   },
   {
-    "objectID": "index.html#qualitative-comparisons",
-    "href": "index.html#qualitative-comparisons",
-    "title": "Crazyflie Quadrotors in Complex Envrionments",
-    "section": "Qualitative Comparisons",
-    "text": "Qualitative Comparisons\n\nDescribe the comparison setup — which baselines are you comparing against, and what should the reader look for in the side-by-side results.\n\n\n\n\n\n\nOurs\n\n\nOurs\n\n\n\n\n\nBaseline A\n\n\nBaseline A"
+    "objectID": "index.html#data-analysis-metrics",
+    "href": "index.html#data-analysis-metrics",
+    "title": "Wayno Crazyflie Quadrotor",
+    "section": "Data Analysis & Metrics",
+    "text": "Data Analysis & Metrics\n\nWe utilize mcap Rosbags collected during our physical hardware runs to evaluate controller robustness. We track the positional error against our gate passing thresholds: ±0.25m in the Y-axis (lateral) and ±0.1m in the Z-axis (vertical).\n\n\n\nSuccessful Traversal\n\n\n\nSuccessful Traversal Plot\n\n\n\nAnalysis: This run demonstrates a successful lap using our baseline PID controller. By placing the drone physically close to the nominal takeoff position defined in the configuration, the initial positional error was minimized. The controller effectively compensated for minor deviations, pulling the drone well within the Y-axis (±0.25m) and Z-axis (±0.1m) tolerance zones for Gate 0. This satisfied the switching conditions, allowing the state machine to sequentially trigger gate transitions and complete the track.\n\n\n\nFailure Case Analysis\n\n\n\nFailure Case Plot\n\n\n\nAnalysis: This failure case was recorded using the exact same code and PID parameters as the successful run. The only altered variable was the drone’s physical starting location, which was manually placed further from the configured nominal position. The data reveals that this larger initial displacement caused the controller to settle into a steady-state error at Y = -0.15m. Because this leaves the drone ≈ 0.4m away from the target center (Y = 0.25m), it fails to satisfy the less than 0.25m threshold requirement. Consequently, the state machine locks up, exposing the controller’s current sensitivity to initial takeoff positions and the need for stronger integral (\\(K_i\\)) control."
   },
   {
-    "objectID": "index.html#interpolation-demo",
-    "href": "index.html#interpolation-demo",
-    "title": "Crazyflie Quadrotors in Complex Envrionments",
-    "section": "Interpolation Demo",
-    "text": "Interpolation Demo\n\nIf your method supports interpolation or continuous control, you can add an interactive slider here. The example below shows how to set one up.\n\n\n\n\n\n\nStart\n\n\n\n\n\nEnd\n\n\n\n\n\n50%"
+    "objectID": "index.html#next-steps",
+    "href": "index.html#next-steps",
+    "title": "Wayno Crazyflie Quadrotor",
+    "section": "Next Steps",
+    "text": "Next Steps\n\nBased on our midpoint evaluation and the data gathered from our baseline hardware flights, our next steps will focus on three primary objectives to achieve faster and more robust autonomous racing:\n\nProactive Trajectory Planning (A* Search): Currently, the drone calculates approach points and waypoints reactively on the fly. We plan to shift to a proactive architecture by introducing a global planning algorithm (such as A*) to pre-compute a continuous, obstacle-free trajectory before flight. Initially, we will pair this new planner with our existing PID controller to validate the generated paths.\nAdvanced Optimal Control (LQR): Once the global trajectory planning pipeline is verified, we will upgrade our flight controller by replacing the baseline PID with a Linear Quadratic Regulator (LQR). Unlike PID, LQR can mathematically optimize the trade-off between tracking error and control effort across multiple state variables simultaneously. We expect this to significantly reduce steady-state errors and enable much faster, smoother trajectory tracking.\nReinforcement Learning (RL) Refinement: In parallel with the classical planning-and-control pipeline, we are actively training a model-free RL policy in CrazySim. We will continue to train and tune the reward functions to produce a neural network capable of agile gate passing and dynamic obstacle avoidance, working towards our ultimate goal of deploying a highly stable and fast autonomous drone."
   },
   {
     "objectID": "index.html#related-work",
     "href": "index.html#related-work",
-    "title": "Crazyflie Quadrotors in Complex Envrionments",
+    "title": "Wayno Crazyflie Quadrotor",
     "section": "Related Work",
     "text": "Related Work\n\nHere are some related works in this area:\n\nChampion-level drone racing using deep reinforcement learning also addresses the gap between simulation and physical reality (Sim-to-Real) using data-driven residual models to account for unmodeled aerodynamics and sensor noise.\nD4RT: Teaching AI to see the world in four dimensions introduces a unified 4D reconstruction and tracking framework. While our project focuses on ROS2-based control, D4RT represents the cutting edge of spatial perception, which is essential for high-speed autonomous navigation and “world model” understanding."
   },
   {
     "objectID": "index.html#references",
     "href": "index.html#references",
-    "title": "Crazyflie Quadrotors in Complex Envrionments",
+    "title": "Wayno Crazyflie Quadrotor",
     "section": "References",
     "text": "References\n\n[1] Kaufmann, E., Bauersfeld, L., Loquercio, A., et al. “Champion-level drone racing using deep reinforcement learning.” Nature 620, 982–987 (2023). https://doi.org/10.1038/s41586-023-06419-4"
   },
   {
     "objectID": "index.html#bibtex",
     "href": "index.html#bibtex",
-    "title": "Crazyflie Quadrotors in Complex Envrionments",
+    "title": "Wayno Crazyflie Quadrotor",
     "section": "BibTeX",
     "text": "BibTeX\n@article{WayNo2.0-2026project,\n  author    = {Zhou Xiyuan and Lin Wenjuan and Vijay Susheendhar},\n  title     = {Crazyfile Quadrotors in Complex Environment},\n  howpublished = {Project Report for ECE 484: Principles of Safe Autonomy, University of Illinois Urbana-Champaign},\n  year      = {2026},\n  note      = {Course Project}\n}"
   }
