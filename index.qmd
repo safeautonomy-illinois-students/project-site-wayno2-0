@@ -50,7 +50,7 @@ for time-optimal trajectory tracking and agile obstacle avoidance.
 ::: {.hero-teaser}
 
 <!-- Option A: Use a static image as the teaser -->
-![Block Diagram](static/images/block_diagram.png){.teaser-img}
+![Block Diagram](static/images/block_diagram_2.png){.teaser-img}
 
 <!-- Option B: Embed a video teaser (uncomment below, comment out image above)
 {{< video static/videos/teaser.mp4 >}}
