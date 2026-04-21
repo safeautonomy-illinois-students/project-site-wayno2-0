@@ -46,14 +46,14 @@
     "href": "index.html#related-work",
     "title": "Wayno Crazyflie Quadrotor",
     "section": "Related Work",
-    "text": "Related Work\n\nHere are some related works in this area:\n\nChampion-level drone racing using deep reinforcement learning also addresses the gap between simulation and physical reality (Sim-to-Real) using data-driven residual models to account for unmodeled aerodynamics and sensor noise.\nD4RT: Teaching AI to see the world in four dimensions introduces a unified 4D reconstruction and tracking framework. While our project focuses on ROS2-based control, D4RT represents the cutting edge of spatial perception, which is essential for high-speed autonomous navigation and “world model” understanding."
+    "text": "Related Work\n\nHere are some related works in this area:\n\nChampion-level drone racing using deep reinforcement learning also addresses the gap between simulation and physical reality (Sim-to-Real) using data-driven residual models to account for unmodeled aerodynamics and sensor noise.\nD4RT: Teaching AI to see the world in four dimensions introduces a unified 4D reconstruction and tracking framework. While our project focuses on ROS2-based control, D4RT represents the cutting edge of spatial perception, which is essential for high-speed autonomous navigation and “world model” understanding.\nAutonomous Drone Racing with Deep Reinforcement Learning proposes a novel approach to near-time-optimal trajectory generation for quadrotors. By leveraging deep reinforcement learning and relative gate observations, this work heavily inspires our own model-free RL policy training and reward function design in CrazySim."
   },
   {
     "objectID": "index.html#references",
     "href": "index.html#references",
     "title": "Wayno Crazyflie Quadrotor",
     "section": "References",
-    "text": "References\n\n[1] Kaufmann, E., Bauersfeld, L., Loquercio, A., et al. “Champion-level drone racing using deep reinforcement learning.” Nature 620, 982–987 (2023). https://doi.org/10.1038/s41586-023-06419-4"
+    "text": "References\n\n[1] Kaufmann, E., Bauersfeld, L., Loquercio, A., et al. “Champion-level drone racing using deep reinforcement learning.” Nature 620, 982–987 (2023). https://doi.org/10.1038/s41586-023-06419-4\n[2] Song, Y., Steinweg, M., Kaufmann, E., Scaramuzza, D. “Autonomous Drone Racing with Deep Reinforcement Learning.” IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) (2021). https://doi.org/10.48550/arXiv.2103.08624"
   },
   {
     "objectID": "index.html#bibtex",

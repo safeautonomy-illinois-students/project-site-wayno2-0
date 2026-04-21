@@ -247,6 +247,10 @@ introduces a unified 4D reconstruction and tracking framework.
 While our project focuses on ROS2-based control, 
 D4RT represents the cutting edge of spatial perception, 
 which is essential for high-speed autonomous navigation and "world model" understanding.
+- [Autonomous Drone Racing with Deep Reinforcement Learning](https://doi.org/10.48550/arXiv.2103.08624) 
+proposes a novel approach to near-time-optimal trajectory generation for quadrotors. 
+By leveraging deep reinforcement learning and relative gate observations, 
+this work heavily inspires our own model-free RL policy training and reward function design in CrazySim.
 
 :::
 
@@ -257,6 +261,8 @@ which is essential for high-speed autonomous navigation and "world model" unders
 [1] Kaufmann, E., Bauersfeld, L., Loquercio, A., et al. "Champion-level drone racing using deep reinforcement learning." 
 *Nature* 620, 982–987 (2023). [https://doi.org/10.1038/s41586-023-06419-4](https://doi.org/10.1038/s41586-023-06419-4)
 
+[2] Song, Y., Steinweg, M., Kaufmann, E., Scaramuzza, D. "Autonomous Drone Racing with Deep Reinforcement Learning." 
+*IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)* (2021). [https://doi.org/10.48550/arXiv.2103.08624](https://doi.org/10.48550/arXiv.2103.08624)
 :::
 
 :::
