@@ -32,7 +32,7 @@ for time-optimal trajectory tracking and agile obstacle avoidance.
 
 ::: {.button-row}
 
-[[{{< fa video >}} Simulation Video]{.btn-text}](https://youtu.be/hbPQByq5deU){.btn .btn-primary}
+[[{{< fa video >}} Simulation Video]{.btn-text}](https://youtu.be/4og1H7TyQKY){.btn .btn-primary}
 [[{{< fa video >}} Hardware Video]{.btn-text}](https://youtu.be/iOUJcZcdEEY){.btn .btn-primary}
 [[{{< fa brands github >}} Code]{.btn-text}](https://github.com/safeautonomy-illinois-students/drone-track-wayno2.git){.btn .btn-primary}
 
@@ -106,7 +106,7 @@ demonstrating reliable gate traversal and waypoint tracking under ideal physics 
 
 ::: {.video-container}
 <!-- Replace with your YouTube or local video embed -->
-{{< video https://youtu.be/hbPQByq5deU >}}
+{{< video https://youtu.be/4og1H7TyQKY >}}
 :::
 
 :::
@@ -123,7 +123,7 @@ demonstrating reliable gate traversal and waypoint tracking under ideal physics 
 ::: {.content-text}
 Moving from simulation to the physical Highbay environment, 
 we have successfully collected Rosbag data and tested our controller on the Crazyflie hardware. 
-Currently, stable hover is achieved, and by scaling down the target velocity, 
+Currently, stable hover is achieved, and by scaling down the target velocity and setting yaw to 0, 
 the drone can successfully complete a full lap of the circuit.
 :::
 
