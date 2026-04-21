@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Wayno Crazyflie Quadrotor",
     "section": "",
-    "text": "Developing a learning-based ROS2 controller inspired by the Swift system for time-optimal trajectory tracking and agile obstacle avoidance.\n\n\nXiyuan Zhou1, Wenjuan Lin1, Susheendhar Vijay1\n\n\n1University of Illinois Urbana-Champaign (UIUC)\n\n\n Simulation Video  Hardware Video  Code"
+    "text": "Developing a learning-based ROS2 controller inspired by the Swift system for time-optimal trajectory tracking and agile obstacle avoidance.\n\n\nXiyuan Zhou1, Wenjuan Lin1, Susheendhar Vijay1\n\n\n1University of Illinois Urbana-Champaign (UIUC)\n\n\n Simulation (PID) Video  Simulation (RL) Video  Hardware Video  Code"
   },
   {
     "objectID": "index.html#abstract",
@@ -18,14 +18,14 @@
     "href": "index.html#software-simulation-progress",
     "title": "Wayno Crazyflie Quadrotor",
     "section": "Software: Simulation Progress",
-    "text": "Software: Simulation Progress\n\nWe have established a robust Gazebo-based simulation environment. A baseline PID controller has been fully implemented and tested in simulation, demonstrating reliable gate traversal and waypoint tracking under ideal physics conditions."
+    "text": "Software: Simulation Progress\n\nWe have established a robust Gazebo-based simulation environment. A baseline PID controller has been fully implemented and tested in simulation, demonstrating reliable gate traversal and waypoint tracking under ideal physics conditions.\nFurthermore, we have made preliminary progress in training a model-free Reinforcement Learning (RL) policy. Currently, our trained RL agent has successfully learned to navigate through the first two gates of the circuit. Demonstrations of both approaches are shown below.\n\nBaseline PID Controller:\n\n\n\n\nPreliminary RL Policy (Successfully passing 2 gates):"
   },
   {
     "objectID": "index.html#hardware-physical-flight-tests",
     "href": "index.html#hardware-physical-flight-tests",
     "title": "Wayno Crazyflie Quadrotor",
     "section": "Hardware: Physical Flight Tests",
-    "text": "Hardware: Physical Flight Tests\n\nMoving from simulation to the physical Highbay environment, we have successfully collected Rosbag data and tested our controller on the Crazyflie hardware. Currently, stable hover is achieved, and by scaling down the target velocity, the drone can successfully complete a full lap of the circuit."
+    "text": "Hardware: Physical Flight Tests\n\nMoving from simulation to the physical Highbay environment, we have successfully collected Rosbag data and tested our controller on the Crazyflie hardware. Currently, stable hover is achieved, and by scaling down the target velocity and setting yaw to 0, the drone can successfully complete a full lap of the circuit."
   },
   {
     "objectID": "index.html#data-analysis-metrics",

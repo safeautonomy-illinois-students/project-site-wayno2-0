@@ -205,7 +205,7 @@ window.Quarto = {
 <p><sup>1</sup>University of Illinois Urbana-Champaign (UIUC)</p>
 </div>
 <div class="button-row">
-<p><a href="https://youtu.be/hbPQByq5deU" class="btn btn-primary"><span class="btn-text"><i class="fa-solid fa-video" aria-label="video"></i> Simulation Video</span></a> <a href="https://youtu.be/iOUJcZcdEEY" class="btn btn-primary"><span class="btn-text"><i class="fa-solid fa-video" aria-label="video"></i> Hardware Video</span></a> <a href="https://github.com/safeautonomy-illinois-students/drone-track-wayno2.git" class="btn btn-primary"><span class="btn-text"><i class="fa-brands fa-github" aria-label="github"></i> Code</span></a></p>
+<p><a href="https://youtu.be/4og1H7TyQKY" class="btn btn-primary"><span class="btn-text"><i class="fa-solid fa-video" aria-label="video"></i> Simulation (PID) Video</span></a> <a href="https://youtu.be/xnmZ3sgpZHI" class="btn btn-primary"><span class="btn-text"><i class="fa-solid fa-video" aria-label="video"></i> Simulation (RL) Video</span></a> <a href="https://youtu.be/iOUJcZcdEEY" class="btn btn-primary"><span class="btn-text"><i class="fa-solid fa-video" aria-label="video"></i> Hardware Video</span></a> <a href="https://github.com/safeautonomy-illinois-students/drone-track-wayno2.git" class="btn btn-primary"><span class="btn-text"><i class="fa-brands fa-github" aria-label="github"></i> Code</span></a></p>
 </div>
 </section>
 <!-- ============================================================ -->
@@ -243,10 +243,16 @@ window.Quarto = {
 <h2 class="section-title anchored" data-anchor-id="software-simulation-progress">Software: Simulation Progress</h2>
 <div class="content-text">
 <p>We have established a robust Gazebo-based simulation environment. A baseline PID controller has been fully implemented and tested in simulation, demonstrating reliable gate traversal and waypoint tracking under ideal physics conditions.</p>
+<p>Furthermore, we have made preliminary progress in training a model-free Reinforcement Learning (RL) policy. Currently, our trained RL agent has successfully learned to navigate through the first two gates of the circuit. Demonstrations of both approaches are shown below.</p>
 </div>
+<p><strong>Baseline PID Controller:</strong></p>
 <div class="video-container">
 <!-- Replace with your YouTube or local video embed -->
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/hbPQByq5deU" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/4og1H7TyQKY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<p><strong>Preliminary RL Policy (Successfully passing 2 gates):</strong></p>
+<div class="video-container">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/xnmZ3sgpZHI" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 </section>
 <!-- ============================================================ -->
@@ -255,7 +261,7 @@ window.Quarto = {
 <section id="hardware-physical-flight-tests" class="level2 section-title section-container">
 <h2 class="section-title anchored" data-anchor-id="hardware-physical-flight-tests">Hardware: Physical Flight Tests</h2>
 <div class="content-text">
-<p>Moving from simulation to the physical Highbay environment, we have successfully collected Rosbag data and tested our controller on the Crazyflie hardware. Currently, stable hover is achieved, and by scaling down the target velocity, the drone can successfully complete a full lap of the circuit.</p>
+<p>Moving from simulation to the physical Highbay environment, we have successfully collected Rosbag data and tested our controller on the Crazyflie hardware. Currently, stable hover is achieved, and by scaling down the target velocity and setting yaw to 0, the drone can successfully complete a full lap of the circuit.</p>
 </div>
 <div class="video-container">
 <!-- Replace with your YouTube or local video embed -->

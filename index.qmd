@@ -32,7 +32,8 @@ for time-optimal trajectory tracking and agile obstacle avoidance.
 
 ::: {.button-row}
 
-[[{{< fa video >}} Simulation Video]{.btn-text}](https://youtu.be/4og1H7TyQKY){.btn .btn-primary}
+[[{{< fa video >}} Simulation (PID) Video]{.btn-text}](https://youtu.be/4og1H7TyQKY){.btn .btn-primary}
+[[{{< fa video >}} Simulation (RL) Video]{.btn-text}](https://youtu.be/xnmZ3sgpZHI){.btn .btn-primary}
 [[{{< fa video >}} Hardware Video]{.btn-text}](https://youtu.be/iOUJcZcdEEY){.btn .btn-primary}
 [[{{< fa brands github >}} Code]{.btn-text}](https://github.com/safeautonomy-illinois-students/drone-track-wayno2.git){.btn .btn-primary}
 
@@ -102,11 +103,23 @@ we aim to achieve reliable gate traversal, robust obstacle avoidance, and consis
 We have established a robust Gazebo-based simulation environment. 
 A baseline PID controller has been fully implemented and tested in simulation, 
 demonstrating reliable gate traversal and waypoint tracking under ideal physics conditions.
+
+Furthermore, we have made preliminary progress in training a model-free Reinforcement Learning (RL) policy. 
+Currently, our trained RL agent has successfully learned to navigate through the first two gates of the circuit. 
+Demonstrations of both approaches are shown below.
 :::
+
+**Baseline PID Controller:**
 
 ::: {.video-container}
 <!-- Replace with your YouTube or local video embed -->
-{{< video https://youtu.be/4og1H7TyQKY >}}
+{{< video https://youtu.be/4og1H7TyQKY >}} 
+:::
+
+**Preliminary RL Policy (Successfully passing 2 gates):**
+
+::: {.video-container}
+{{< video https://youtu.be/xnmZ3sgpZHI >}}
 :::
 
 :::
